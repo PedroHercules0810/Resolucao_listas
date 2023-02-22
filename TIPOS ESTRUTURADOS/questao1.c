@@ -182,7 +182,7 @@ int main(void)
             }
             break;
         case 2:
-            imprime_turmas(turma, n);
+            imprime_turma(turma, n);
             break;
         case 3:
             printf("Matriculando aluno...");
@@ -247,6 +247,3 @@ int main(void)
 
     return 0;
 }
-
-free(t);
-free(aluno);
