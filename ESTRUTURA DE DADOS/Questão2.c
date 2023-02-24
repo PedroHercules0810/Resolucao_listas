@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+// a questão 2 segue a mesma lógica da 1, a unica alteração são as variaveis
+
 typedef struct pessoa
 {
 
@@ -11,7 +13,7 @@ typedef struct pessoa
 
 } Pessoa;
 
-void imprime(Pessoa * pessoa, int num_pessoas)
+void imprime(Pessoa *pessoa, int num_pessoas)
 {
 
     for (int j = 0; j < num_pessoas; j++)
@@ -27,7 +29,7 @@ void imprime(Pessoa * pessoa, int num_pessoas)
     }
 }
 
-void altera_idade(Pessoa * pessoa)
+void altera_idade(Pessoa *pessoa)
 {
 
     float nova_idade;
@@ -46,14 +48,11 @@ void altera_idade(Pessoa * pessoa)
     pessoa->idade = nova_idade;
 }
 
-
-void mais_velho_mais_novo(Pessoa * pessoa, int * qnt_pessoas)
+void mais_velho_mais_novo(Pessoa *pessoa, int *qnt_pessoas)
 {
     int i;
     int velho, novo;
     char m_velho[50], m_novo[50];
-
-
 
     for (i = 0; i < qnt_pessoas; i++)
     {
@@ -65,25 +64,24 @@ void mais_velho_mais_novo(Pessoa * pessoa, int * qnt_pessoas)
             velho = pessoa[i].idade;
             novo = pessoa[i].idade;
         }
-        
 
         if (pessoa[i].idade > velho)
         {
             velho = pessoa[i].idade;
             strcpy(m_velho, pessoa[i].nome);
         }
-        if (pessoa[i].idade < novo);
+        if (pessoa[i].idade < novo)
+            ;
         {
             strcpy(m_novo, pessoa[i].nome);
             novo = pessoa[i].idade;
         }
     }
-    
+
     printf("A maior idade é %d \n", velho);
     printf("A pessoa mais velha é %s \n", m_velho);
     printf("O menor idade é %d \n", novo);
     printf("A pessoa mais nova é %s \n", m_novo);
-
 }
 
 int main(void)
@@ -94,7 +92,7 @@ int main(void)
     printf("Quantos funcionários deseja cadastrar: ");
     scanf("%d", &num_pessoas);
 
-    Pessoa * pessoa = (Pessoa *)malloc(num_pessoas * sizeof(Pessoa));
+    Pessoa *pessoa = (Pessoa *)malloc(num_pessoas * sizeof(Pessoa));
 
     for (i = 0; i < num_pessoas; i++)
     {
