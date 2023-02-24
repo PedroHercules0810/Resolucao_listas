@@ -57,28 +57,32 @@ int main(void)
 
 */
 
-//questão 4
+// questão 4
 
 #include <math.h> //stdio.h está no inico do código
 
-void calcula_hexagono(float l, float * area, float * perimetro)
+// criando uma função para calcular area e perimetro o exagono
+void calcula_hexagono(float l, float *area, float *perimetro)
 {
 
-    *area = ((3*pow(l,2))*(sqrt(3)))/2;
-    *perimetro = 6*l;
-    
+    *area = ((3 * pow(l, 2)) * (sqrt(3))) / 2;
+    *perimetro = 6 * l;
 }
 
+// função principa
 int main()
 {
-
+    // criando as variaveis
     float l, area, perimetro;
 
+    // pedindo ao usuario para informar o tamanho do lado do hexagono
     printf("Digite o comprimento do lado do hexagono: \n");
     scanf("%f", &l);
 
+    // chamando a função calcula hexagono
     calcula_hexagono(l, &area, &perimetro);
 
+    // mostrando a area e o perimetro do hexagono
     printf("Area do hexagono: %f\n", area);
     printf("Perimetro do hexagono: %f\n", perimetro);
 
