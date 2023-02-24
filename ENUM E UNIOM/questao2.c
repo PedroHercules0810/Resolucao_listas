@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// definindo uma enum de tipos
 typedef enum tipo
 {
     ALIMENTO,
@@ -8,6 +9,7 @@ typedef enum tipo
     ELETRONICA
 } Tipo;
 
+// definindo uma estrutura de produtos
 typedef struct produto
 {
     char nome[50];
@@ -15,7 +17,8 @@ typedef struct produto
     Tipo tipo;
 } Produto;
 
-void imprime(Produto * produto, int num_produtos)
+// criando uma função para imprimir os produtos
+void imprime(Produto *produto, int num_produtos)
 {
     for (int i = 0; i < num_produtos; i++)
     {
@@ -42,11 +45,14 @@ int main()
 {
     int num_prods;
 
+    // pedindo ao usuario para informar a quantidade de produtos
     printf("Quantos produtos deseja cadastrar: ");
     scanf("%d", &num_prods);
 
-    Produto * produto = (Produto *) malloc(num_prods * sizeof(Produto));
+    // alocando dinamicamente os produtos
+    Produto *produto = (Produto *)malloc(num_prods * sizeof(Produto));
 
+    // usando um for para preencher cada produto
     for (int i = 0; i < num_prods; i++)
     {
         printf("Digite o Nome do Produto [%d]: \n", i + 1);
@@ -59,8 +65,10 @@ int main()
         scanf("%d", &produto[i].tipo);
     }
 
+    // chamando a função imprime, passando o vetor de produtos e o numero de produtos como parametro
     imprime(produto, num_prods);
 
+    // liberando a memoria
     free(produto);
 
     return 0;
